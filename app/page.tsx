@@ -113,7 +113,7 @@ export default function Home() {
                   purposes, and for the prevention of cruelty to children and
                   animals.
                 </p>
-                <div className="flex gap-4">
+                <div className="grid gap-4 md:grid-cols-5 grid-cols-3">
                   <div className="flex items-center gap-2">
                     <Church className="h-5 w-5 text-red-600" />
                     <span className="font-medium">Religion</span>
