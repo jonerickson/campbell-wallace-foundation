@@ -7,14 +7,9 @@ import {
   Church,
   Heart,
   Users,
-  Calendar,
-  ArrowRight,
   Mail,
   Phone,
   MapPin,
-  Facebook,
-  Instagram,
-  Twitter,
 } from "lucide-react";
 
 export default function Home() {
@@ -87,13 +82,13 @@ export default function Home() {
             </p>
             <div className="mt-10 flex flex-wrap gap-4 justify-center">
               <Button className="bg-red-600 hover:bg-red-700 text-white">
-                About
+                <Link href="#about">About</Link>
               </Button>
               <Button
                 variant="secondary"
                 className="bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 border-white"
               >
-                Beneficiary Information
+                <Link href="#beneficiary">Beneficiary Information</Link>
               </Button>
             </div>
           </div>
@@ -331,7 +326,9 @@ export default function Home() {
               variant="secondary"
               className="bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 border-white"
             >
-              CWF Beneficiary Application
+              <Link href="/CWFApplication.pdf" target="_blank">
+                CWF Beneficiary Application
+              </Link>
             </Button>
           </div>
         </section>
