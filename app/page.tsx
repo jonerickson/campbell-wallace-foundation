@@ -10,9 +10,7 @@ import {
   GraduationCap,
   Heart,
   Mail,
-  MapPin,
   Microscope,
-  Phone,
   Users,
 } from "lucide-react";
 
@@ -119,7 +117,7 @@ export default function Home() {
               height={40}
               className="rounded-full"
             />
-            <span className="text-xl font-bold tracking-tight">
+            <span className="text-base font-bold tracking-tight sm:text-xl">
               Campbell-Wallace Foundation
             </span>
           </div>
