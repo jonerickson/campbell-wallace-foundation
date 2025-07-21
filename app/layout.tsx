@@ -2,7 +2,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 
 import type React from "react";
 
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 
 import "./globals.css";
@@ -10,14 +10,14 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// Update the metadata
 export const metadata: Metadata = {
   title: "Campbell Wallace Foundation",
   description:
     "Improving lives through education, community support, and charitable initiatives.",
-  generator: "v0.dev",
-  viewport: "width=device-width, initial-scale=1",
-  themeColor: "#B76766",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#9F3433",
 };
 
 export default function RootLayout({
