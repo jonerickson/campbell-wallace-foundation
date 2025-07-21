@@ -6,7 +6,7 @@ declare global {
   interface Window {
     turnstile: {
       render: (container: string | HTMLElement, options: {
-        siteKey: string;
+        sitekey: string;
         callback: (token: string) => void;
         'error-callback'?: () => void;
         'expired-callback'?: () => void;
@@ -18,7 +18,7 @@ declare global {
 }
 
 interface TurnstileProps {
-  siteKey: string;
+  sitekey: string;
   onVerify: (token: string) => void;
   onError?: () => void;
   onExpired?: () => void;
@@ -28,7 +28,7 @@ export interface TurnstileRef {
   reset: () => void;
 }
 
-const Turnstile = forwardRef<TurnstileRef, TurnstileProps>(({ siteKey, onVerify, onError, onExpired }, ref) => {
+const Turnstile = forwardRef<TurnstileRef, TurnstileProps>(({ sitekey, onVerify, onError, onExpired }, ref) => {
   const turnstileRef = useRef<HTMLDivElement>(null);
   const [widgetId, setWidgetId] = useState<string | null>(null);
 
@@ -53,7 +53,7 @@ const Turnstile = forwardRef<TurnstileRef, TurnstileProps>(({ siteKey, onVerify,
         turnstileRef.current.innerHTML = '';
 
         const id = window.turnstile.render(turnstileRef.current, {
-          siteKey,
+          sitekey,
           callback: onVerify,
           'error-callback': onError,
           'expired-callback': onExpired,
@@ -79,7 +79,7 @@ const Turnstile = forwardRef<TurnstileRef, TurnstileProps>(({ siteKey, onVerify,
         clearInterval(intervalId);
       }
     };
-  }, [siteKey]); // Remove callback dependencies to prevent re-rendering
+  }, [sitekey]); // Remove callback dependencies to prevent re-rendering
 
   // Separate cleanup effect for component unmount
   useEffect(() => {

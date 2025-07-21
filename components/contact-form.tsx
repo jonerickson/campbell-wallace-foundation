@@ -121,7 +121,7 @@ export default function ContactForm() {
           {process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ? (
             <Turnstile
               ref={turnstileRef}
-              siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+              sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
               onVerify={handleTurnstileVerify}
               onError={handleTurnstileError}
               onExpired={handleTurnstileExpired}
