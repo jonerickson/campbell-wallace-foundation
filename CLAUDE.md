@@ -43,7 +43,7 @@ The contact form (`components/contact-form.tsx`) uses Resend for email delivery 
   - `NEXT_PUBLIC_TURNSTILE_SITE_KEY` - Cloudflare Turnstile public key
   - `TURNSTILE_SECRET_KEY` - Cloudflare Turnstile secret key
   - `RESEND_API_KEY` - Resend API key for sending emails
-  - `CONTACT_EMAIL` - Email address to receive contact form submissions (defaults to info@campbellwallacefoundation.org)
+  - `CONTACT_EMAIL` - Email address to receive contact form submissions (defaults to hello@thecwf.org)
 - **API Endpoint**: `/api/contact` handles form submissions and email delivery
 
 ### Theming
