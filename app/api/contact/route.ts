@@ -50,7 +50,7 @@ export async function POST(request: NextRequest) {
 
     // Send email using Resend
     const data = await resend.emails.send({
-      from: "Contact Form <contact@campbellwallacefoundation.org>",
+      from: "Campbell Wallace Foundation <hello@thecwf.org>",
       to: [process.env.CONTACT_EMAIL || "hello@thecwf.org"],
       subject: `Contact Form: ${subject}`,
       html: `
@@ -67,7 +67,7 @@ export async function POST(request: NextRequest) {
           </div>
           <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
           <p style="font-size: 12px; color: #666;">
-            This message was sent from the Campbell-Wallace Foundation website contact form.
+            This message was sent from the Campbell Wallace Foundation website contact form.
           </p>
         </div>
       `,
@@ -85,6 +85,14 @@ ${message}
 This message was sent from the Campbell-Wallace Foundation website contact form.
       `,
     });
+
+    if (data.error) {
+      console.error("Contact form error:", data.error);
+      return NextResponse.json(
+        { error: "Failed to send message. Please try again." },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {
