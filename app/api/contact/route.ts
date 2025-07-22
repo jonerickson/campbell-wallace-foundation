@@ -82,7 +82,7 @@ Message:
 ${message}
 
 ---
-This message was sent from the Campbell-Wallace Foundation website contact form.
+This message was sent from the Campbell Wallace Foundation website contact form.
       `,
     });
 
