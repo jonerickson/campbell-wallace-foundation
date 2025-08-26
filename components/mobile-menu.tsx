@@ -44,28 +44,28 @@ export default function MobileMenu() {
               <div className="flex flex-col space-y-4">
                 <Link
                   href="#about"
-                  className="text-lg font-medium hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 rounded px-2 py-1"
+                  className="text-lg font-medium hover:text-red-700 focus:outline-hidden focus:ring-2 focus:ring-red-500 focus:ring-offset-2 rounded px-2 py-1"
                   onClick={closeMenu}
                 >
                   About
                 </Link>
                 <Link
                   href="#impact"
-                  className="text-lg font-medium hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 rounded px-2 py-1"
+                  className="text-lg font-medium hover:text-red-700 focus:outline-hidden focus:ring-2 focus:ring-red-500 focus:ring-offset-2 rounded px-2 py-1"
                   onClick={closeMenu}
                 >
                   Impact
                 </Link>
                 <Link
                   href="#beneficiary"
-                  className="text-lg font-medium hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 rounded px-2 py-1"
+                  className="text-lg font-medium hover:text-red-700 focus:outline-hidden focus:ring-2 focus:ring-red-500 focus:ring-offset-2 rounded px-2 py-1"
                   onClick={closeMenu}
                 >
                   Beneficiary Information
                 </Link>
                 <Link
                   href="#contact"
-                  className="text-lg font-medium hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 rounded px-2 py-1"
+                  className="text-lg font-medium hover:text-red-700 focus:outline-hidden focus:ring-2 focus:ring-red-500 focus:ring-offset-2 rounded px-2 py-1"
                   onClick={closeMenu}
                 >
                   Contact

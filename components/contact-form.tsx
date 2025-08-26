@@ -81,7 +81,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="bg-white p-8 rounded-lg shadow-sm">
+    <div className="bg-white p-8 rounded-lg shadow-xs">
       <form className="space-y-4" onSubmit={handleFormSubmit} aria-label="Contact form">
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="space-y-2">

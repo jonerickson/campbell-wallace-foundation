@@ -109,7 +109,7 @@ function SkipNavigation() {
 
 function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur-sm supports-backdrop-filter:bg-white/60">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
           <Image
@@ -126,25 +126,25 @@ function Header() {
         <nav className="hidden gap-6 md:flex" aria-label="Main navigation">
           <Link
             href="#about"
-            className="rounded text-sm font-medium hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+            className="rounded text-sm font-medium hover:text-red-700 focus:outline-hidden focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
           >
             About
           </Link>
           <Link
             href="#impact"
-            className="rounded text-sm font-medium hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+            className="rounded text-sm font-medium hover:text-red-700 focus:outline-hidden focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
           >
             Impact
           </Link>
           <Link
             href="#beneficiary"
-            className="rounded text-sm font-medium hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+            className="rounded text-sm font-medium hover:text-red-700 focus:outline-hidden focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
           >
             Beneficiary Information
           </Link>
           <Link
             href="#contact"
-            className="rounded text-sm font-medium hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+            className="rounded text-sm font-medium hover:text-red-700 focus:outline-hidden focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
           >
             Contact
           </Link>
@@ -170,7 +170,7 @@ function HeroSection() {
       <div className="container relative z-10 flex flex-col items-center justify-center py-56 text-center text-white">
         <h1
           id="hero-heading"
-          className="max-w-3xl text-4xl font-bold leading-8 tracking-tight sm:text-5xl md:text-7xl"
+          className="max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl md:text-7xl"
           style={{ textShadow: "0 1px 3px rgba(0,0,0,0.3)" }}
         >
           Making a Difference Through Philanthropy
@@ -189,7 +189,7 @@ function HeroSection() {
           </Button>
           <Button
             variant="secondary"
-            className="border-white bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 focus:ring-2 focus:ring-white focus:ring-offset-2"
+            className="border-white bg-white/10 text-white backdrop-blur-xs hover:bg-white/20 focus:ring-2 focus:ring-white focus:ring-offset-2"
           >
             <Link href="#beneficiary">Beneficiary Information</Link>
           </Button>
@@ -280,7 +280,7 @@ function ImpactSection() {
         </div>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {donees.map((donee, index) => (
-            <div key={index} className="rounded-lg bg-white p-6 shadow-sm">
+            <div key={index} className="rounded-lg bg-white p-6 shadow-xs">
               <p className="mb-4 text-gray-600">{donee.blurb}</p>
               <div className="flex items-center gap-3">
                 <div className="relative h-12 w-12 overflow-hidden rounded-lg bg-white p-2">
@@ -296,7 +296,7 @@ function ImpactSection() {
                     <Link
                       href={donee.url}
                       target="_blank"
-                      className="rounded font-medium hover:text-red-700 hover:underline focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                      className="rounded font-medium hover:text-red-700 hover:underline focus:outline-hidden focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
                       aria-label={`Visit ${donee.name} website`}
                     >
                       {donee.name}
@@ -339,7 +339,7 @@ function TeamSection() {
           {teamMembers.map((member, index) => (
             <div key={index} className="text-center">
               <div
-                className={`mx-auto mb-4 h-64 w-64 rounded-full bg-gradient-to-br ${member.gradientColors} flex items-center justify-center shadow-lg`}
+                className={`mx-auto mb-4 h-64 w-64 rounded-full bg-linear-to-br ${member.gradientColors} flex items-center justify-center shadow-lg`}
               >
                 <span className="text-6xl font-bold text-gray-800">
                   {member.initials}
@@ -386,7 +386,7 @@ function BeneficiarySection() {
         </p>
         <Button
           variant="secondary"
-          className="border-white bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 focus:ring-2 focus:ring-white focus:ring-offset-2"
+          className="border-white bg-white/10 text-white backdrop-blur-xs hover:bg-white/20 focus:ring-2 focus:ring-white focus:ring-offset-2"
         >
           <Link
             href="/CWFApplication.pdf"
@@ -476,25 +476,25 @@ function Footer() {
             <nav className="flex flex-col gap-2" aria-label="Footer navigation">
               <Link
                 href="#about"
-                className="rounded text-sm hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900"
+                className="rounded text-sm hover:text-white focus:outline-hidden focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900"
               >
                 About Us
               </Link>
               <Link
                 href="#impact"
-                className="rounded text-sm hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900"
+                className="rounded text-sm hover:text-white focus:outline-hidden focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900"
               >
                 Our Impact
               </Link>
               <Link
                 href="#beneficiary"
-                className="rounded text-sm hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900"
+                className="rounded text-sm hover:text-white focus:outline-hidden focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900"
               >
                 Beneficiary Information
               </Link>
               <Link
                 href="#contact"
-                className="rounded text-sm hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900"
+                className="rounded text-sm hover:text-white focus:outline-hidden focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900"
               >
                 Contact Us
               </Link>
