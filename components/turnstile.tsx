@@ -79,7 +79,7 @@ const Turnstile = forwardRef<TurnstileRef, TurnstileProps>(({ sitekey, onVerify,
         clearInterval(intervalId);
       }
     };
-  }, [sitekey]); // Remove callback dependencies to prevent re-rendering
+  }, [onError, onExpired, onVerify, widgetId, sitekey]); // Remove callback dependencies to prevent re-rendering
 
   // Separate cleanup effect for component unmount
   useEffect(() => {
@@ -92,7 +92,7 @@ const Turnstile = forwardRef<TurnstileRef, TurnstileProps>(({ sitekey, onVerify,
         }
       }
     };
-  }, []);
+  }, [widgetId]);
 
   return <div ref={turnstileRef}></div>;
 });
