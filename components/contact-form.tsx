@@ -3,6 +3,8 @@
 import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import Turnstile, { TurnstileRef } from "@/components/turnstile";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function ContactForm() {
   const [turnstileToken, setTurnstileToken] = useState<string>("");
@@ -85,28 +87,20 @@ export default function ContactForm() {
       <form className="space-y-4" onSubmit={handleFormSubmit} aria-label="Contact form">
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="space-y-2">
-            <label htmlFor="name" className="text-sm font-medium">
-              Name
-            </label>
-            <input
+            <Input
               id="name"
               name="name"
               type="text"
-              className="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-red-500 focus:border-red-500"
               placeholder="Your name"
               aria-describedby="name-error"
               required
             />
           </div>
           <div className="space-y-2">
-            <label htmlFor="email" className="text-sm font-medium">
-              Email
-            </label>
-            <input
+            <Input
               id="email"
               name="email"
               type="email"
-              className="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-red-500 focus:border-red-500"
               placeholder="Your email"
               aria-describedby="email-error"
               required
@@ -114,32 +108,24 @@ export default function ContactForm() {
           </div>
         </div>
         <div className="space-y-2">
-          <label htmlFor="subject" className="text-sm font-medium">
-            Subject
-          </label>
-          <input
+          <Input
             id="subject"
             name="subject"
             type="text"
-            className="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-red-500 focus:border-red-500"
             placeholder="Subject"
             aria-describedby="subject-error"
             required
           />
         </div>
         <div className="space-y-2">
-          <label htmlFor="message" className="text-sm font-medium">
-            Message
-          </label>
-          <textarea
+          <Textarea
             id="message"
             name="message"
             rows={4}
-            className="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-red-500 focus:border-red-500"
             placeholder="Your message"
             aria-describedby="message-error"
             required
-          ></textarea>
+          ></Textarea>
         </div>
         <div className="flex justify-center">
           {process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ? (
@@ -151,8 +137,8 @@ export default function ContactForm() {
               onExpired={handleTurnstileExpired}
             />
           ) : (
-            <div className="text-red-500 text-sm">
-              Turnstile site key not configured
+            <div className="text-primary text-sm">
+              Turnstile site key not configured.
             </div>
           )}
         </div>
@@ -167,7 +153,7 @@ export default function ContactForm() {
         )}
         <Button
           type="submit"
-          className="w-full bg-red-600 hover:bg-red-700 focus:ring-2 focus:ring-red-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          className='w-full'
           disabled={isSubmitting || (process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ? !isFormValid : true)}
           aria-label="Submit contact form"
         >
