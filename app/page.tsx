@@ -77,7 +77,7 @@ function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur-sm supports-backdrop-filter:bg-white/60">
       <div className="@container">
-        <div className="@sm:mx-auto @sm:max-w-7xl @sm:px-4">
+        <div className="px-4 @sm:mx-auto @sm:max-w-7xl">
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center gap-2">
               <Image
@@ -126,17 +126,17 @@ function HeroSection() {
         />
       </div>
       <div className="@container">
-        <div className="@sm:mx-auto @sm:max-w-7xl @sm:px-4">
-          <div className="relative z-10 flex flex-col items-center justify-center py-56 text-center text-white">
+        <div className="px-4 @sm:mx-auto @sm:max-w-7xl">
+          <div className="relative z-10 flex flex-col items-center justify-center py-36 text-center text-white sm:py-56">
             <h1
               id="hero-heading"
-              className="max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl md:text-7xl"
+              className="max-w-3xl text-3xl font-bold tracking-tight sm:text-5xl md:text-7xl"
               style={{ textShadow: "0 1px 3px rgba(0,0,0,0.3)" }}
             >
               Making a Difference Through Philanthropy
             </h1>
             <p
-              className="mt-6 max-w-2xl text-lg"
+              className="mt-6 max-w-2xl text-base sm:text-lg"
               style={{ textShadow: "0 1px 2px rgba(0,0,0,0.2)" }}
             >
               The Campbell Wallace Foundation is a 501(c)(3) non-profit
@@ -169,7 +169,7 @@ function AboutSection() {
       aria-labelledby="about-heading"
     >
       <div className="@container">
-        <div className="@sm:mx-auto @sm:max-w-7xl @sm:px-4">
+        <div className="px-4 @sm:mx-auto @sm:max-w-7xl">
           <div className="grid items-center gap-12 md:grid-cols-2">
             <div>
               <h2
@@ -178,7 +178,7 @@ function AboutSection() {
               >
                 Our Mission
               </h2>
-              <p className="mb-4 text-lg text-gray-600">
+              <p className="mb-4 text-base text-gray-600 sm:text-lg">
                 The Campbell-Wallace Foundation was founded in 1997 to support
                 religious, charitable, scientific, literary or educational
                 purposes, and for the prevention of cruelty to children and
@@ -230,7 +230,7 @@ function ImpactSection() {
       aria-labelledby="impact-heading"
     >
       <div className="@container">
-        <div className="@sm:mx-auto @sm:max-w-7xl @sm:px-4">
+        <div className="px-4 @sm:mx-auto @sm:max-w-7xl">
           <div className="mb-16 text-center">
             <h2
               id="impact-heading"
@@ -238,7 +238,7 @@ function ImpactSection() {
             >
               Our Impact
             </h2>
-            <p className="text-primary mx-auto max-w-2xl text-lg">
+            <p className="text-primary mx-auto max-w-2xl text-base sm:text-lg">
               See how our programs have made a difference in communities and
               individuals&apos; lives.
             </p>
@@ -289,14 +289,14 @@ function BeneficiarySection() {
       aria-labelledby="beneficiary-heading"
     >
       <div className="@container text-center">
-        <div className="@sm:mx-auto @sm:max-w-7xl @sm:px-4">
+        <div className="px-4 @sm:mx-auto @sm:max-w-7xl">
           <h2
             id="beneficiary-heading"
             className="mb-4 text-3xl font-bold tracking-tight"
           >
             Support Our Mission
           </h2>
-          <p className="mx-auto mb-8 max-w-2xl text-lg">
+          <p className="mx-auto mb-8 max-w-2xl text-base sm:text-lg">
             If you wish to apply to TheCWF.org to donate to your foundation
             please review, complete and submit CWF Beneficiary Application to
             The Campbell Wallace Foundation, 27411 SW Campbell Lane, West Linn,
@@ -328,7 +328,7 @@ function ContactSection() {
       aria-labelledby="contact-heading"
     >
       <div className="@container">
-        <div className="@sm:mx-auto @sm:max-w-7xl @sm:px-4">
+        <div className="px-4 @sm:mx-auto @sm:max-w-7xl">
           <div className="grid items-center gap-12 md:grid-cols-2">
             <div>
               <h2
@@ -337,7 +337,7 @@ function ContactSection() {
               >
                 Get In Touch
               </h2>
-              <p className="mb-8 text-lg text-gray-600">
+              <p className="mb-8 text-base text-gray-600 sm:text-lg">
                 Have questions about our programs or how you can get involved?
                 We&apos;d love to hear from you.
               </p>
@@ -360,7 +360,7 @@ function Footer() {
   return (
     <footer className="bg-gray-900 py-12 text-gray-300">
       <div className="@container">
-        <div className="@sm:mx-auto @sm:max-w-7xl @sm:px-4">
+        <div className="px-4 @sm:mx-auto @sm:max-w-7xl">
           <div className="grid gap-8 md:grid-cols-5">
             <div className="md:col-span-2">
               <div className="mb-4 flex items-center gap-2">
