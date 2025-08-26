@@ -125,32 +125,36 @@ function HeroSection() {
           priority
         />
       </div>
-      <div className="@container relative z-10 flex flex-col items-center justify-center py-56 text-center text-white">
-        <h1
-          id="hero-heading"
-          className="max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl md:text-7xl"
-          style={{ textShadow: "0 1px 3px rgba(0,0,0,0.3)" }}
-        >
-          Making a Difference Through Philanthropy
-        </h1>
-        <p
-          className="mt-6 max-w-2xl text-lg"
-          style={{ textShadow: "0 1px 2px rgba(0,0,0,0.2)" }}
-        >
-          The Campbell Wallace Foundation is a 501(c)(3) non-profit organization
-          dedicated to improving lives through education, community support, and
-          charitable initiatives.
-        </p>
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
-          <Button asChild>
-            <Link href="#about">About</Link>
-          </Button>
-          <Button
-            variant="secondary"
-            className="border-white bg-white/10 text-white backdrop-blur-xs hover:bg-white/20 focus:ring-2 focus:ring-white focus:ring-offset-2"
-          >
-            <Link href="#beneficiary">Beneficiary Information</Link>
-          </Button>
+      <div className="@container">
+        <div className="@sm:mx-auto @sm:max-w-7xl @sm:px-4">
+          <div className="relative z-10 flex flex-col items-center justify-center py-56 text-center text-white">
+            <h1
+              id="hero-heading"
+              className="max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl md:text-7xl"
+              style={{ textShadow: "0 1px 3px rgba(0,0,0,0.3)" }}
+            >
+              Making a Difference Through Philanthropy
+            </h1>
+            <p
+              className="mt-6 max-w-2xl text-lg"
+              style={{ textShadow: "0 1px 2px rgba(0,0,0,0.2)" }}
+            >
+              The Campbell Wallace Foundation is a 501(c)(3) non-profit
+              organization dedicated to improving lives through education,
+              community support, and charitable initiatives.
+            </p>
+            <div className="mt-10 flex flex-wrap justify-center gap-4">
+              <Button asChild>
+                <Link href="#about">About</Link>
+              </Button>
+              <Button
+                variant="secondary"
+                className="border-white bg-white/10 text-white backdrop-blur-xs hover:bg-white/20 focus:ring-2 focus:ring-white focus:ring-offset-2"
+              >
+                <Link href="#beneficiary">Beneficiary Information</Link>
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
