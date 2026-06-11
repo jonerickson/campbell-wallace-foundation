@@ -104,6 +104,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* Offset anchor jumps so headings clear the sticky header (h-16). */
+  scroll-padding-top: 4.5rem;
 }
 
 /* Accessibility improvements */

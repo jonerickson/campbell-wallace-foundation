@@ -12,9 +12,37 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Campbell Wallace Foundation",
+  metadataBase: new URL("https://thecwf.org"),
+  title: {
+    default: "Campbell-Wallace Foundation",
+    template: "%s | Campbell-Wallace Foundation",
+  },
   description:
-    "Improving lives through education, community support, and charitable initiatives.",
+    "The Campbell-Wallace Foundation is a 501(c)(3) non-profit established in 1997, improving lives through education, community support, and charitable initiatives.",
+  keywords: [
+    "Campbell-Wallace Foundation",
+    "501(c)(3)",
+    "non-profit",
+    "charity",
+    "Oregon",
+    "philanthropy",
+    "grants",
+  ],
+  openGraph: {
+    title: "Campbell-Wallace Foundation",
+    description:
+      "A 501(c)(3) non-profit improving lives through education, community support, and charitable initiatives.",
+    url: "https://thecwf.org",
+    siteName: "Campbell-Wallace Foundation",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Campbell-Wallace Foundation",
+    description:
+      "A 501(c)(3) non-profit improving lives through education, community support, and charitable initiatives.",
+  },
 };
 
 export const viewport: Viewport = {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -10,6 +10,22 @@ export default function MobileMenu() {
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeMenu();
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
 
   return (
     <div className="md:hidden">
@@ -29,18 +45,18 @@ export default function MobileMenu() {
         <>
           {/* Overlay */}
           <div
-            className="fixed inset-0 bg-black bg-opacity-50 z-40"
+            className="fixed inset-0 z-40 bg-black/50"
             onClick={closeMenu}
             aria-hidden="true"
           />
-          
+
           {/* Mobile menu */}
           <nav
             id="mobile-menu"
-            className="fixed top-16 left-0 right-0 bg-white border-b shadow-lg z-50"
+            className="fixed top-16 right-0 left-0 z-50 border-b bg-white shadow-lg"
             aria-label="Mobile navigation"
           >
-            <div className="container py-4">
+            <div className="mx-auto max-w-7xl px-4 py-4">
               <div className="flex flex-col space-y-4">
                 <Link
                   href="#about"

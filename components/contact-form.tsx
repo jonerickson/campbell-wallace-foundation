@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import Turnstile, { TurnstileRef } from "@/components/turnstile";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
 export default function ContactForm() {
@@ -87,43 +88,53 @@ export default function ContactForm() {
       <form className="space-y-4" onSubmit={handleFormSubmit} aria-label="Contact form">
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="space-y-2">
+            <Label htmlFor="name">
+              Name <span className="text-primary">*</span>
+            </Label>
             <Input
               id="name"
               name="name"
               type="text"
               placeholder="Your name"
-              aria-describedby="name-error"
+              autoComplete="name"
               required
             />
           </div>
           <div className="space-y-2">
+            <Label htmlFor="email">
+              Email <span className="text-primary">*</span>
+            </Label>
             <Input
               id="email"
               name="email"
               type="email"
-              placeholder="Your email"
-              aria-describedby="email-error"
+              placeholder="you@example.com"
+              autoComplete="email"
               required
             />
           </div>
         </div>
         <div className="space-y-2">
+          <Label htmlFor="subject">
+            Subject <span className="text-primary">*</span>
+          </Label>
           <Input
             id="subject"
             name="subject"
             type="text"
-            placeholder="Subject"
-            aria-describedby="subject-error"
+            placeholder="How can we help?"
             required
           />
         </div>
         <div className="space-y-2">
+          <Label htmlFor="message">
+            Message <span className="text-primary">*</span>
+          </Label>
           <Textarea
             id="message"
             name="message"
             rows={4}
             placeholder="Your message"
-            aria-describedby="message-error"
             required
           ></Textarea>
         </div>
@@ -143,11 +154,15 @@ export default function ContactForm() {
           )}
         </div>
         {submitMessage && (
-          <div className={`p-3 rounded-md text-sm ${
-            submitMessage.type === 'success' 
-              ? 'bg-green-50 text-green-800 border border-green-200' 
-              : 'bg-red-50 text-red-800 border border-red-200'
-          }`}>
+          <div
+            role={submitMessage.type === 'success' ? 'status' : 'alert'}
+            aria-live={submitMessage.type === 'success' ? 'polite' : 'assertive'}
+            className={`p-3 rounded-md text-sm ${
+              submitMessage.type === 'success'
+                ? 'bg-green-50 text-green-800 border border-green-200'
+                : 'bg-red-50 text-red-800 border border-red-200'
+            }`}
+          >
             {submitMessage.text}
           </div>
         )}

@@ -6,12 +6,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 import {
+  BookOpen,
   Church,
   GraduationCap,
   Heart,
+  HeartHandshake,
   Mail,
   Microscope,
-  Users,
 } from "lucide-react";
 
 type Donor = {
@@ -25,9 +26,9 @@ type Donor = {
 const donees: Donor[] = [
   {
     blurb:
-      "Creating healthy, self-sustaining communities by giving kids, parents and volunteers the tools they need to improve physical fitness, health and wellness.",
+      "Making homes safer and lives easier for physically and financially challenged homeowners by providing essential, no-cost home modifications—such as wheelchair ramps, grab bars, and widened doorways—that help individuals with mobility issues remain independent.",
     name: "ReFit Portland",
-    role: "Health & Wellness Organization",
+    role: "Home Modification Organization",
     image: "/refit-logo.png",
     url: "https://refitportland.org/",
   },
@@ -57,9 +58,9 @@ const donees: Donor[] = [
   },
   {
     blurb:
-      "Providing healthy, affordable meals and nutrition education to strengthen communities and improve access to quality food for all.",
+      "Empowering young adults with developmental disabilities through meaningful vocational training, independent life skills, and community integration by involving them in every step of baking and selling all-natural dog biscuits.",
     name: "W.A.G. – SNAX",
-    role: "Nutrition & Community Organization",
+    role: "Vocational Training Organization",
     image: "/wag-snax-logo.png",
     url: "https://wag-snax.com/",
   },
@@ -121,8 +122,12 @@ function HeroSection() {
           src="/hero.jpeg"
           alt="Hands exchanging a heart"
           fill
-          className="object-cover brightness-[0.75]"
+          className="object-cover"
           priority
+        />
+        <div
+          className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/45 to-black/60"
+          aria-hidden="true"
         />
       </div>
       <div className="@container">
@@ -144,12 +149,14 @@ function HeroSection() {
               community support, and charitable initiatives.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <Button asChild>
-                <Link href="#about">About</Link>
+              <Button asChild size="lg">
+                <Link href="#about">Learn About Us</Link>
               </Button>
               <Button
+                asChild
                 variant="secondary"
-                className="border-white bg-white/10 text-white backdrop-blur-xs hover:bg-white/20 focus:ring-2 focus:ring-white focus:ring-offset-2"
+                size="lg"
+                className="border border-white/70 bg-white/10 text-white backdrop-blur-xs hover:bg-white/20 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2"
               >
                 <Link href="#beneficiary">Beneficiary Information</Link>
               </Button>
@@ -174,38 +181,41 @@ function AboutSection() {
             <div>
               <h2
                 id="about-heading"
-                className="mb-6 text-3xl font-bold tracking-tight"
+                className="text-3xl font-bold tracking-tight"
               >
                 Our Mission
               </h2>
-              <p className="mb-4 text-base text-gray-600 sm:text-lg">
+              <div
+                className="bg-primary mt-4 mb-6 h-1 w-12 rounded-full"
+                aria-hidden="true"
+              />
+              <p className="mb-8 text-base text-gray-600 sm:text-lg">
                 The Campbell-Wallace Foundation was founded in 1997 to support
                 religious, charitable, scientific, literary or educational
                 purposes, and for the prevention of cruelty to children and
                 animals.
               </p>
-              <div className="grid grid-cols-3 gap-4 md:grid-cols-5">
-                <div className="flex items-center gap-2">
-                  <Church className="text-primary h-5 w-5" />
-                  <span className="font-medium">Religion</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Heart className="text-primary h-5 w-5" />
-                  <span className="font-medium">Charity</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Microscope className="text-primary h-5 w-5" />
-                  <span className="font-medium">Science</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <GraduationCap className="text-primary h-5 w-5" />
-                  <span className="font-medium">Education</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Users className="text-primary h-5 w-5" />
-                  <span className="font-medium">People</span>
-                </div>
-              </div>
+              <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                {[
+                  { icon: Church, label: "Religion" },
+                  { icon: Heart, label: "Charity" },
+                  { icon: Microscope, label: "Science" },
+                  { icon: BookOpen, label: "Literary" },
+                  { icon: GraduationCap, label: "Education" },
+                  { icon: HeartHandshake, label: "Child & Animal Welfare" },
+                ].map(({ icon: Icon, label }) => (
+                  <li
+                    key={label}
+                    className="flex items-center gap-2 rounded-md bg-gray-50 px-3 py-2 transition-colors hover:bg-gray-100"
+                  >
+                    <Icon
+                      className="text-primary h-5 w-5 shrink-0"
+                      aria-hidden="true"
+                    />
+                    <span className="text-sm font-medium">{label}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
             <div className="relative h-[400px] overflow-hidden rounded-lg">
               <Image
@@ -234,10 +244,14 @@ function ImpactSection() {
           <div className="mb-16 text-center">
             <h2
               id="impact-heading"
-              className="text-primary mb-4 text-3xl font-bold tracking-tight"
+              className="text-primary text-3xl font-bold tracking-tight"
             >
               Our Impact
             </h2>
+            <div
+              className="bg-primary mx-auto mt-4 mb-6 h-1 w-12 rounded-full"
+              aria-hidden="true"
+            />
             <p className="text-primary mx-auto max-w-2xl text-base sm:text-lg">
               See how our programs have made a difference in communities and
               individuals&apos; lives.
@@ -245,10 +259,13 @@ function ImpactSection() {
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {donees.map((donee, index) => (
-              <div key={index} className="rounded-lg bg-white p-6 shadow-xs">
-                <p className="mb-4 text-gray-600">{donee.blurb}</p>
-                <div className="flex items-center gap-3">
-                  <div className="relative h-12 w-12 overflow-hidden rounded-lg bg-white p-2">
+              <div
+                key={index}
+                className="flex flex-col rounded-lg border border-gray-100 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-lg"
+              >
+                <p className="mb-6 flex-1 text-gray-600">{donee.blurb}</p>
+                <div className="flex items-center gap-3 border-t border-gray-100 pt-4">
+                  <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg border border-gray-100 bg-white p-2">
                     <Image
                       src={donee.image}
                       alt={`${donee.name} logo`}
@@ -261,8 +278,9 @@ function ImpactSection() {
                       <Link
                         href={donee.url}
                         target="_blank"
-                        className="hover:text-primary rounded font-medium hover:underline focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:outline-hidden"
-                        aria-label={`Visit ${donee.name} website`}
+                        rel="noopener noreferrer"
+                        className="hover:text-primary rounded font-medium hover:underline focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:outline-hidden"
+                        aria-label={`Visit ${donee.name} website (opens in a new tab)`}
                       >
                         {donee.name}
                       </Link>
@@ -292,10 +310,14 @@ function BeneficiarySection() {
         <div className="px-4 @sm:mx-auto @sm:max-w-7xl">
           <h2
             id="beneficiary-heading"
-            className="mb-4 text-3xl font-bold tracking-tight"
+            className="text-3xl font-bold tracking-tight"
           >
             Support Our Mission
           </h2>
+          <div
+            className="mx-auto mt-4 mb-6 h-1 w-12 rounded-full bg-white/80"
+            aria-hidden="true"
+          />
           <p className="mx-auto mb-8 max-w-2xl text-base sm:text-lg">
             If you wish to apply to TheCWF.org to donate to your foundation
             please review, complete and submit CWF Beneficiary Application to
@@ -303,13 +325,16 @@ function BeneficiarySection() {
             OR. 97068.
           </p>
           <Button
+            asChild
+            size="lg"
             variant="secondary"
-            className="border-white bg-white/10 text-white backdrop-blur-xs hover:bg-white/20 focus:ring-2 focus:ring-white focus:ring-offset-2"
+            className="border border-white/70 bg-white/10 text-white backdrop-blur-xs hover:bg-white/20 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2"
           >
             <Link
               href="/CWFApplication.pdf"
               target="_blank"
-              aria-label="Download CWF Beneficiary Application PDF"
+              rel="noopener noreferrer"
+              aria-label="Download CWF Beneficiary Application PDF (opens in a new tab)"
             >
               CWF Beneficiary Application
             </Link>
@@ -333,18 +358,30 @@ function ContactSection() {
             <div>
               <h2
                 id="contact-heading"
-                className="mb-6 text-3xl font-bold tracking-tight"
+                className="text-3xl font-bold tracking-tight"
               >
                 Get In Touch
               </h2>
+              <div
+                className="bg-primary mt-4 mb-6 h-1 w-12 rounded-full"
+                aria-hidden="true"
+              />
               <p className="mb-8 text-base text-gray-600 sm:text-lg">
                 Have questions about our programs or how you can get involved?
                 We&apos;d love to hear from you.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <Mail className="text-primary h-5 w-5" />
-                  <span>hello@thecwf.org</span>
+                  <Mail
+                    className="text-primary h-5 w-5 shrink-0"
+                    aria-hidden="true"
+                  />
+                  <a
+                    href="mailto:hello@thecwf.org"
+                    className="hover:text-primary rounded hover:underline focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:outline-hidden"
+                  >
+                    hello@thecwf.org
+                  </a>
                 </div>
               </div>
             </div>
